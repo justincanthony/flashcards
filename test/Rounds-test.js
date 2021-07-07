@@ -23,13 +23,47 @@ describe('Round', function() {
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
 
-    round.returnCurrentCard();
-
-    expect(round.returnCurrentCard()).to.deep.equal(card1);
+    expect(round.returnCurrentCard()).to.deep.equal(round.deck[round.turns]);
   })
-  // it('should be able to track turns')
-  // it('should be able to store an array of incorrect guesses by card number')
-  // it('should be able to take a turn and and increase the turn count')
+  it('should start with 0 turns', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+
+    expect(round.turns).to.equal(0);
+  })
+  it('should start with no incorrect guesses', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+
+    expect(round.incorrectGuesses).to.deep.equal([]);
+  })
+  it('should be able to take a player guess and return the outcome', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+
+
+    const firstTurn = round.takeTurn('sea otter');
+    const secondTurn = round.takeTurn('gallbladder');
+    const thirdTurn = round.takeTurn('gallbladderwrong');
+
+    expect(firstTurn).to.equal('correct!');
+    expect(secondTurn).to.equal('correct!');
+    expect(thirdTurn).to.equal('incorrect!');
+    expect(round.turns).to.equal(3);
+    expect(round.incorrectGuesses).to.deep.equal([12]);
+  })
   // it('should')
   // it('should')
   // it('should')
