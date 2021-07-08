@@ -14,14 +14,14 @@ class Game {
       let newCard = new Card(question.id, question.question, question.answers, question.correctAnswer)
       return newCard;
     });
-    let newDeck = new Deck(newCards);
-    let currentGame = new Round(newDeck);
-    this.currentRound = currentGame;
-    this.printMessage(newDeck, currentGame);
-    this.printQuestion(currentGame);
+    let deck = new Deck(newCards);
+    let round = new Round(deck);
+    this.currentRound = round;
+    this.printMessage(deck);
+    this.printQuestion(round);
   }
 
-  printMessage(deck, round) {
+  printMessage(deck) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
