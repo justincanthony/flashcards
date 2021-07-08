@@ -28,8 +28,8 @@ class Round {
 
   endRound() {
     let percentage = Math.round(this.calculatePercentCorrect());
+    console.log(`**Round Over!** You answered ${percentage}% of the questions correctly!`)
     return `**Round Over!** You answered ${percentage}% of the questions correctly!`
   }
-
 }
 module.exports = Round;
