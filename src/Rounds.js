@@ -21,5 +21,10 @@ class Round {
       return turn.giveFeedback();
     }
   }
+
+  calculatePercentCorrect() {
+   return 100 * ((this.turns - this.incorrectGuesses.length) / this.turns);
+  }
+
 }
 module.exports = Round;
