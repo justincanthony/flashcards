@@ -11,8 +11,8 @@ class Game {
 
   start() {
     let newCards = prototypeQuestions.map(function(question) {
-    let newCard = new Card(question.id, question.question, question.answers, question.correctAnswer)
-    return newCard;
+      let newCard = new Card(question.id, question.question, question.answers, question.correctAnswer)
+      return newCard;
     });
     let newDeck = new Deck(newCards);
     let currentGame = new Round(newDeck);

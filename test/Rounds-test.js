@@ -88,7 +88,7 @@ describe('Round', function() {
 
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
-    
+
     round.takeTurn('sea otter');
     round.takeTurn('spleen');
 
