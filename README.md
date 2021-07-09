@@ -1,4 +1,4 @@
-# ||Welcome to FlashCards|| version 2000
+# || Welcome to FlashCards || version 2000
 
 __Contributors__
 - [Justin Anthony](https://github.com/justincanthony)
@@ -18,5 +18,5 @@ Test your Knowledge with this interactive trivia game in your console.
 - A message will be displayed informing you of your result, followed by the next question.
 - After all the cards have been played, a message will indicate that the round is over, and will display your score
 
-
+![Flashcard Video](https://user-images.githubusercontent.com/82064981/125006445-6816de00-e01b-11eb-8b87-03c24a1414a7.gif)
 
