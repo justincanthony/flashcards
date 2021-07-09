@@ -10,8 +10,13 @@ class Game {
   }
 
   start() {
-    let newCards = prototypeQuestions.map(function(question) {
-      let newCard = new Card(question.id, question.question, question.answers, question.correctAnswer)
+    let newCards = prototypeQuestions.map(function (question) {
+      let newCard = new Card(
+        question.id,
+        question.question,
+        question.answers,
+        question.correctAnswer
+      );
       return newCard;
     });
     let deck = new Deck(newCards);
@@ -23,7 +28,7 @@ class Game {
 
   printMessage(deck) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
+-----------------------------------------------------------------------`);
   }
 
   printQuestion(round) {
